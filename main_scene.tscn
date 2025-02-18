@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://oe58xjntr6a"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_3hyy6"]
+[ext_resource type="PackedScene" uid="uid://ydlidiodkry0" path="res://rubber.tscn" id="1_ks7cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy143"]
+size = Vector2(1197, 670)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eagto"]
+bg_color = Color(1, 1, 1, 1)
+shadow_size = 20
+shadow_offset = Vector2(20, 20)
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Camera" type="CharacterBody2D" parent="."]
+script = ExtResource("1_3hyy6")
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera"]
+position = Vector2(3.5, -6)
+shape = SubResource("RectangleShape2D_gy143")
+
+[node name="Paper" type="Panel" parent="." groups=["Sheet"]]
+offset_left = -793.0
+offset_top = -530.0
+offset_right = 828.0
+offset_bottom = 1601.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eagto")
+
+[node name="Rubber" parent="." instance=ExtResource("1_ks7cg")]
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
+polygon = PackedVector2Array(-1507, -733, -1524, 3437, 1553, 3437, 1557, -725, 1430, -696, 1434, 3310, -1405, 3319, -1351, -654, 1420, -654, 1523, -734, -1372.92, -733)

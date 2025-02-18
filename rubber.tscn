@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ydlidiodkry0"]
+
+[ext_resource type="Texture2D" uid="uid://blov2wp42c8qg" path="res://icon.svg" id="1_rpatw"]
+[ext_resource type="Script" path="res://rubber.gd" id="2_x0dta"]
+
+[node name="Rubber" type="Sprite2D"]
+modulate = Color(0.450648, 0.450648, 0.450648, 1)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("1_rpatw")
+script = ExtResource("2_x0dta")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
