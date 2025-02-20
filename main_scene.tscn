@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://oe58xjntr6a"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3hyy6"]
-[ext_resource type="PackedScene" uid="uid://ydlidiodkry0" path="res://rubbers/rubber.tscn" id="2_fv61h"]
+[ext_resource type="PackedScene" uid="uid://ydlidiodkry0" path="res://rubber.tscn" id="2_fv61h"]
 [ext_resource type="Script" path="res://tres/RubbersRes/RubberResource.gd" id="3_byx3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy143"]
@@ -28,3 +28,5 @@ polygon = PackedVector2Array(-1507, -733, -1524, 3437, 1553, 3437, 1557, -725, 1
 
 [node name="Rubber" parent="." instance=ExtResource("2_fv61h")]
 StartingRubber = SubResource("Resource_t34eq")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
