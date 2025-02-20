@@ -1,21 +1,95 @@
-[gd_scene load_steps=6 format=3 uid="uid://oe58xjntr6a"]
+[gd_scene load_steps=10 format=3 uid="uid://oe58xjntr6a"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3hyy6"]
-[ext_resource type="PackedScene" uid="uid://ydlidiodkry0" path="res://rubber.tscn" id="2_fv61h"]
-[ext_resource type="Script" path="res://tres/RubbersRes/RubberResource.gd" id="3_byx3p"]
+[ext_resource type="FontFile" uid="uid://0cwaoco030wf" path="res://assets/fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf" id="1_ogrxn"]
+[ext_resource type="Script" path="res://Eraseble.gd" id="2_1vg7s"]
+[ext_resource type="PackedScene" uid="uid://ydlidiodkry0" path="res://rubbers/rubber.tscn" id="2_fv61h"]
+[ext_resource type="Resource" uid="uid://y3qkqxklhv66" path="res://tres/RubbersRes/BasicRubber.tres" id="3_gdd2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jj16"]
+bg_color = Color(0.517184, 0.517185, 0.517184, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixnm2"]
+content_margin_left = 84.0
+content_margin_top = 84.0
+content_margin_right = 84.0
+content_margin_bottom = 84.0
+bg_color = Color(0.864675, 0.864675, 0.864675, 1)
+shadow_color = Color(0, 0, 0, 0.431373)
+shadow_size = 20
+shadow_offset = Vector2(20, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cab7g"]
+font = ExtResource("1_ogrxn")
+font_size = 31
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy143"]
-size = Vector2(1197, 670)
-
-[sub_resource type="Resource" id="Resource_t34eq"]
-script = ExtResource("3_byx3p")
+size = Vector2(1765, 968)
 
 [node name="MainScene" type="Node2D"]
+
+[node name="Background" type="PanelContainer" parent="."]
+offset_left = -4580.0
+offset_top = -1684.0
+offset_right = 4906.0
+offset_bottom = 5542.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jj16")
+
+[node name="Paper" type="PanelContainer" parent="."]
+offset_left = -804.0
+offset_top = -495.0
+offset_right = 805.0
+offset_bottom = 3158.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ixnm2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Paper"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="Label" type="Label" parent="Paper/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam id dolor. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Proin mattis lacinia justo. Donec iaculis gravida nulla. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Mauris tincidunt sem sed arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Nullam rhoncus aliquam metus. Etiam commodo dui eget wisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed convallis magna eu sem. Curabitur sagittis hendrerit ante. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Pellentesque sapien. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam."
+label_settings = SubResource("LabelSettings_cab7g")
+autowrap_mode = 3
+script = ExtResource("2_1vg7s")
+durability = 1000.0
+
+[node name="Label2" type="Label" parent="Paper/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Quisque porta. Aliquam erat volutpat. Integer lacinia. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Aliquam in lorem sit amet leo accumsan lacinia. Nullam faucibus mi quis velit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Nulla non lectus sed nisl molestie malesuada. Etiam quis quam. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Aliquam ornare wisi eu metus. Nulla non lectus sed nisl molestie malesuada. Donec quis nibh at felis congue commodo. Praesent dapibus. Etiam commodo dui eget wisi. In enim a arcu imperdiet malesuada. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. In convallis. Etiam dictum tincidunt diam."
+label_settings = SubResource("LabelSettings_cab7g")
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Paper/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Vivamus porttitor turpis ac leo. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Praesent in mauris eu tortor porttitor accumsan. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Duis condimentum augue id magna semper rutrum. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Duis viverra diam non justo. Mauris dictum facilisis augue. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Mauris elementum mauris vitae tortor."
+label_settings = SubResource("LabelSettings_cab7g")
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="Paper/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Integer pellentesque quam vel velit. Phasellus faucibus molestie nisl. Duis viverra diam non justo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Ut tempus purus at lorem. Integer lacinia. Duis condimentum augue id magna semper rutrum. Etiam neque. Aenean fermentum risus id tortor. Quisque tincidunt scelerisque libero."
+label_settings = SubResource("LabelSettings_cab7g")
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="Paper/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Nulla quis diam. Phasellus rhoncus. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Etiam dictum tincidunt diam. Aliquam id dolor. Nam quis nulla. Donec quis nibh at felis congue commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean vel massa quis mauris vehicula lacinia. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aenean id metus id velit ullamcorper pulvinar. Aenean vel massa quis mauris vehicula lacinia. Et harum quidem rerum facilis est et expedita distinctio. Nullam at arcu a est sollicitudin euismod. Etiam bibendum elit eget erat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Suspendisse sagittis ultrices augue."
+label_settings = SubResource("LabelSettings_cab7g")
+autowrap_mode = 3
 
 [node name="Camera" type="CharacterBody2D" parent="."]
 script = ExtResource("1_3hyy6")
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
+zoom = Vector2(0.61, 0.61)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera"]
 position = Vector2(3.5, -6)
@@ -24,9 +98,7 @@ shape = SubResource("RectangleShape2D_gy143")
 [node name="Border" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
-polygon = PackedVector2Array(-1507, -733, -1524, 3437, 1553, 3437, 1557, -725, 1430, -696, 1434, 3310, -1405, 3319, -1351, -654, 1420, -654, 1523, -734, -1372.92, -733)
+polygon = PackedVector2Array(-1507, -733, -2318, 4690, 3307, 4962, 1557, -725, 1430, -696, 1543, 3763, -1521, 3763, -1351, -654, 1420, -654, 1523, -734, -1372.92, -733)
 
 [node name="Rubber" parent="." instance=ExtResource("2_fv61h")]
-StartingRubber = SubResource("Resource_t34eq")
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+StartingRubber = ExtResource("3_gdd2i")

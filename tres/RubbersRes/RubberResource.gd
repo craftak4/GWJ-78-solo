@@ -1,4 +1,4 @@
 class_name RubberResource
 extends Resource
 
-@export var texture:CompressedTexture2D
+@export var RubberTexture:CompressedTexture2D

@@ -6,12 +6,12 @@ extends Sprite2D
 @export var StartingRubber:RubberResource
 @onready var CurrentRubber:RubberResource
 
-func _init() -> void:
+func _ready() -> void:
 	ChangeRubberResource(StartingRubber)
 
 func ChangeRubberResource(new_resource:RubberResource):
 	CurrentRubber = new_resource
-	texture = CurrentRubber.texture
+	texture = CurrentRubber.RubberTexture
 
 #var test:int = 1000
 #var xVel:float
@@ -28,9 +28,3 @@ func ChangeRubberResource(new_resource:RubberResource):
 	#test -= xVel
 	#print(str(test) + " " + str(xVel))
 	#xVel = 0
-
-func FindCurrentEraseble() -> Node:
-	return GetEraseble().filter(func(item:Eraseble): return item.Focused)[0]
-
-func GetEraseble() -> Array[Eraseble]:
-	return get_tree().get_nodes_in_group("eraseble") as Array[Eraseble]

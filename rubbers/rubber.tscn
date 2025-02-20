@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://8bvt2gv7lei3" path="res://assets/textures/rubbers/Red.svg" id="1_kg1qx"]
 [ext_resource type="Script" path="res://rubbers/rubber.gd" id="2_37nku"]
 
-[node name="Rubber" type="Sprite2D"]
-scale = Vector2(0.085, 0.085)
+[node name="Rubber" type="Sprite2D" groups=["rubber"]]
+scale = Vector2(0.195, 0.195)
 texture = ExtResource("1_kg1qx")
 script = ExtResource("2_37nku")
 
