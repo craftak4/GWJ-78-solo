@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://cbsbqpssimtji"]
+
+[ext_resource type="Texture2D" uid="uid://8bvt2gv7lei3" path="res://assets/textures/rubbers/Red.svg" id="1_pjkhw"]
+[ext_resource type="FontFile" uid="uid://0cwaoco030wf" path="res://assets/fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf" id="1_psrot"]
+[ext_resource type="Texture2D" uid="uid://du0syujllkkbi" path="res://assets/textures/rubbers/Blue.svg" id="3_xbayo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qurdw"]
+content_margin_left = 89.0
+content_margin_top = 89.0
+content_margin_right = 89.0
+content_margin_bottom = 89.0
+bg_color = Color(0.564962, 0.564962, 0.564961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4mioe"]
+font = ExtResource("1_psrot")
+font_size = 91
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v8rs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1882l"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1tq6"]
+content_margin_left = 24.0
+content_margin_top = 34.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 10
+border_color = Color(0.403922, 0.403922, 0.403922, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb5p8"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainFrame" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qurdw")
+
+[node name="Split" type="VBoxContainer" parent="MainFrame"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Title" type="Label" parent="MainFrame/Split"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Ink Erasor"
+label_settings = SubResource("LabelSettings_4mioe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainFrame/Split"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_pjkhw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="MainFrame/Split"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="MainFrame/Split/Buttons"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_psrot")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0v8rs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1882l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g1tq6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eb5p8")
+text = "Play"
+icon = ExtResource("1_pjkhw")
+expand_icon = true
+
+[node name="Settings" type="Button" parent="MainFrame/Split/Buttons"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_psrot")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0v8rs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1882l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g1tq6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eb5p8")
+text = "Settings"
+icon = ExtResource("3_xbayo")
+expand_icon = true
+
+[node name="Settings" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

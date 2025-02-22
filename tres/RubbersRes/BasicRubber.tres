@@ -6,3 +6,4 @@
 [resource]
 script = ExtResource("2_0m6vn")
 RubberTexture = ExtResource("1_j2k22")
+Power = 35.0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://oe58xjntr6a"]
+[gd_scene load_steps=11 format=3 uid="uid://oe58xjntr6a"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3hyy6"]
 [ext_resource type="FontFile" uid="uid://0cwaoco030wf" path="res://assets/fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf" id="1_ogrxn"]
 [ext_resource type="Script" path="res://Eraseble.gd" id="2_1vg7s"]
 [ext_resource type="PackedScene" uid="uid://ydlidiodkry0" path="res://rubbers/rubber.tscn" id="2_fv61h"]
 [ext_resource type="Resource" uid="uid://y3qkqxklhv66" path="res://tres/RubbersRes/BasicRubber.tres" id="3_gdd2i"]
+[ext_resource type="Texture2D" uid="uid://cs3w7aq6ml8sb" path="res://assets/textures/ink.png" id="6_w8rbv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jj16"]
 bg_color = Color(0.517184, 0.517185, 0.517184, 1)
@@ -102,3 +103,38 @@ polygon = PackedVector2Array(-1507, -733, -2318, 4690, 3307, 4962, 1557, -725, 1
 
 [node name="Rubber" parent="." instance=ExtResource("2_fv61h")]
 StartingRubber = ExtResource("3_gdd2i")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MainFrame" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/MainFrame"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 74.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainFrame/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MainFrame/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_w8rbv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/MainFrame/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "123435"

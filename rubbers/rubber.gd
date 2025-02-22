@@ -9,6 +9,10 @@ extends Sprite2D
 func _ready() -> void:
 	ChangeRubberResource(StartingRubber)
 
+func _process(delta: float) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	global_position = get_global_mouse_position()
+
 func ChangeRubberResource(new_resource:RubberResource):
 	CurrentRubber = new_resource
 	texture = CurrentRubber.RubberTexture
