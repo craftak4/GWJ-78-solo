@@ -6,6 +6,7 @@ var CurrentTime:float = 0.0
 var ErasedAll:bool = false
 var TimeRunning:bool = true
 var Restarting:bool = false
+var CurrentRubber:RubberResource = load("res://tres/RubbersRes/BasicRubber.tres")
 
 var StartedSession = true
 var GameRun:bool = false

@@ -7,7 +7,7 @@ extends Sprite2D
 @onready var CurrentRubber:RubberResource
 
 func _ready() -> void:
-	ChangeRubberResource(StartingRubber)
+	ChangeRubberResource((get_tree().root.get_node("PlrInfo") as PlrInfo).CurrentRubber)
 
 func _process(delta: float) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

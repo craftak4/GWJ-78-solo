@@ -26,3 +26,4 @@ func Process(id:int):
 	LL.Returner = func(r): return
 	LL.GetRequest("walletDebit").Request([str(PlrInfo.Rubbers.filter(func(x:RubberResource): return x.AssetID == id)[0].Price)],LL.HttpRequest)
 	rubber.ChangeRubberResource(PlrInfo.Rubbers.filter(func(x:RubberResource): return x.AssetID == id)[0])
+	PlrInfo.CurrentRubber = PlrInfo.Rubbers.filter(func(x:RubberResource): return x.AssetID == id)[0]
