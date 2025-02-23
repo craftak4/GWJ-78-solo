@@ -1,11 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://oe58xjntr6a"]
+[gd_scene load_steps=54 format=3 uid="uid://oe58xjntr6a"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3hyy6"]
+[ext_resource type="Script" path="res://main_scene.gd" id="1_ip4tr"]
 [ext_resource type="FontFile" uid="uid://0cwaoco030wf" path="res://assets/fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf" id="1_ogrxn"]
 [ext_resource type="Script" path="res://Eraseble.gd" id="2_1vg7s"]
 [ext_resource type="PackedScene" uid="uid://ydlidiodkry0" path="res://rubbers/rubber.tscn" id="2_fv61h"]
 [ext_resource type="Resource" uid="uid://y3qkqxklhv66" path="res://tres/RubbersRes/BasicRubber.tres" id="3_gdd2i"]
+[ext_resource type="Script" path="res://main_frame_updating.gd" id="6_puuyb"]
 [ext_resource type="Texture2D" uid="uid://cs3w7aq6ml8sb" path="res://assets/textures/ink.png" id="6_w8rbv"]
+[ext_resource type="Script" path="res://pause.gd" id="8_2stws"]
+[ext_resource type="Script" path="res://restart.gd" id="9_58x6a"]
+[ext_resource type="Texture2D" uid="uid://8bvt2gv7lei3" path="res://assets/textures/rubbers/Red.svg" id="10_dgfoy"]
+[ext_resource type="Script" path="res://inv.gd" id="10_rnpvl"]
+[ext_resource type="Texture2D" uid="uid://du0syujllkkbi" path="res://assets/textures/rubbers/Blue.svg" id="11_1pwf1"]
+[ext_resource type="Script" path="res://secret.gd" id="11_qy3kn"]
+[ext_resource type="Texture2D" uid="uid://b5stipbuasgis" path="res://assets/textures/rubbers/Aqua.svg" id="12_dxd4o"]
+[ext_resource type="Script" path="res://leaderboard.gd" id="13_xh46g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jj16"]
 bg_color = Color(0.517184, 0.517185, 0.517184, 1)
@@ -28,7 +38,324 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy143"]
 size = Vector2(1765, 968)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ueiv"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_lero5"]
+font = ExtResource("1_ogrxn")
+font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p820i"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_7pc58"]
+font = ExtResource("1_ogrxn")
+font_size = 21
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oagjm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2eyq"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.415981, 0.41598, 0.41598, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu35s"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 1, 1, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7yue"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56kuq"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fnjp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqhpi"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0, 0, 0.329412)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.341176, 0.341176, 0.341176, 0)
+corner_radius_top_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vlg1"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0, 0, 0.329412)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.341176, 0.341176, 0.341176, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0eqd4"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.415981, 0.41598, 0.41598, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrsyq"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 1, 1, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sefgk"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfc3c"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0, 0, 0.329412)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.341176, 0.341176, 0.341176, 0)
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5wll"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.415981, 0.41598, 0.41598, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0wtm"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 1, 1, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfh81"]
+content_margin_left = 12.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.313726, 0.313726, 0.313726, 0.643137)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_left = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_hfa6r"]
+font = ExtResource("1_ogrxn")
+font_size = 46
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7oex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u75tf"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kg38"]
+content_margin_left = 24.0
+content_margin_top = 34.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 10
+border_color = Color(0.403922, 0.403922, 0.403922, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li5bh"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdrac"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dd6j5"]
+content_margin_left = 289.0
+content_margin_top = 109.0
+content_margin_right = 289.0
+content_margin_bottom = 109.0
+bg_color = Color(0, 0, 0, 0.505882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhsg2"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8r1u"]
+font = ExtResource("1_ogrxn")
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ujdx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vwgm"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.776471, 0.776471, 0.776471, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_neqvt"]
+content_margin_left = 24.0
+content_margin_top = 34.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 10
+border_color = Color(0.403922, 0.403922, 0.403922, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq3tn"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c78ay"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_ip4tr")
 
 [node name="Background" type="PanelContainer" parent="."]
 offset_left = -4580.0
@@ -64,6 +391,8 @@ mouse_filter = 1
 text = "Quisque porta. Aliquam erat volutpat. Integer lacinia. Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Aliquam in lorem sit amet leo accumsan lacinia. Nullam faucibus mi quis velit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Nulla non lectus sed nisl molestie malesuada. Etiam quis quam. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Aliquam ornare wisi eu metus. Nulla non lectus sed nisl molestie malesuada. Donec quis nibh at felis congue commodo. Praesent dapibus. Etiam commodo dui eget wisi. In enim a arcu imperdiet malesuada. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. In convallis. Etiam dictum tincidunt diam."
 label_settings = SubResource("LabelSettings_cab7g")
 autowrap_mode = 3
+script = ExtResource("2_1vg7s")
+durability = 1000.0
 
 [node name="Label3" type="Label" parent="Paper/VBoxContainer"]
 layout_mode = 2
@@ -71,6 +400,8 @@ mouse_filter = 1
 text = "Vivamus porttitor turpis ac leo. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Praesent in mauris eu tortor porttitor accumsan. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Duis condimentum augue id magna semper rutrum. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Duis viverra diam non justo. Mauris dictum facilisis augue. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Mauris elementum mauris vitae tortor."
 label_settings = SubResource("LabelSettings_cab7g")
 autowrap_mode = 3
+script = ExtResource("2_1vg7s")
+durability = 1000.0
 
 [node name="Label4" type="Label" parent="Paper/VBoxContainer"]
 layout_mode = 2
@@ -78,6 +409,8 @@ mouse_filter = 1
 text = "Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Integer pellentesque quam vel velit. Phasellus faucibus molestie nisl. Duis viverra diam non justo. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Ut tempus purus at lorem. Integer lacinia. Duis condimentum augue id magna semper rutrum. Etiam neque. Aenean fermentum risus id tortor. Quisque tincidunt scelerisque libero."
 label_settings = SubResource("LabelSettings_cab7g")
 autowrap_mode = 3
+script = ExtResource("2_1vg7s")
+durability = 1000.0
 
 [node name="Label5" type="Label" parent="Paper/VBoxContainer"]
 layout_mode = 2
@@ -85,6 +418,8 @@ mouse_filter = 1
 text = "Nulla quis diam. Phasellus rhoncus. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Etiam dictum tincidunt diam. Aliquam id dolor. Nam quis nulla. Donec quis nibh at felis congue commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean vel massa quis mauris vehicula lacinia. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Aenean id metus id velit ullamcorper pulvinar. Aenean vel massa quis mauris vehicula lacinia. Et harum quidem rerum facilis est et expedita distinctio. Nullam at arcu a est sollicitudin euismod. Etiam bibendum elit eget erat. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Suspendisse sagittis ultrices augue."
 label_settings = SubResource("LabelSettings_cab7g")
 autowrap_mode = 3
+script = ExtResource("2_1vg7s")
+durability = 1000.0
 
 [node name="Camera" type="CharacterBody2D" parent="."]
 script = ExtResource("1_3hyy6")
@@ -114,27 +449,327 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("6_puuyb")
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/MainFrame"]
+[node name="Ink" type="PanelContainer" parent="UI/MainFrame"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -184.0
-offset_bottom = 74.0
+offset_left = -222.0
+offset_bottom = 92.0
 grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ueiv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainFrame/PanelContainer"]
+[node name="Split" type="HBoxContainer" parent="UI/MainFrame/Ink"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/MainFrame/PanelContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="UI/MainFrame/Ink/Split"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("6_w8rbv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/MainFrame/PanelContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="UI/MainFrame/Ink/Split"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "123435"
+text = "0"
+label_settings = SubResource("LabelSettings_lero5")
+
+[node name="Timer" type="PanelContainer" parent="UI/MainFrame"]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 67.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p820i")
+
+[node name="Label" type="Label" parent="UI/MainFrame/Timer"]
+layout_mode = 2
+text = "12.34"
+label_settings = SubResource("LabelSettings_7pc58")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="UI/MainFrame"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ogrxn")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oagjm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f2eyq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uu35s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7yue")
+text = "Restart (R)"
+script = ExtResource("9_58x6a")
+
+[node name="Shop" type="PanelContainer" parent="UI/MainFrame"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -134.0
+offset_bottom = 134.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_56kuq")
+script = ExtResource("10_rnpvl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainFrame/Shop"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/MainFrame/Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MainFrame/Shop/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("10_dgfoy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Basic" type="Button" parent="UI/MainFrame/Shop/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ogrxn")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0fnjp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tqhpi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f2eyq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uu35s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7yue")
+text = "Pick"
+
+[node name="TextureRect3" type="TextureRect" parent="UI/MainFrame/Shop/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("11_1pwf1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Advanced" type="Button" parent="UI/MainFrame/Shop/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ogrxn")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0fnjp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6vlg1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0eqd4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mrsyq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sefgk")
+text = "Pick"
+
+[node name="TextureRect2" type="TextureRect" parent="UI/MainFrame/Shop/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("12_dxd4o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Super" type="Button" parent="UI/MainFrame/Shop/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ogrxn")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0fnjp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qfc3c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o5wll")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u0wtm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vfh81")
+text = "Pick"
+
+[node name="Pause" type="PanelContainer" parent="UI/MainFrame"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_2stws")
+
+[node name="Split" type="VBoxContainer" parent="UI/MainFrame/Pause"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="UI/MainFrame/Pause/Split"]
+process_mode = 3
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_hfa6r")
+horizontal_alignment = 1
+
+[node name="Button" type="VBoxContainer" parent="UI/MainFrame/Pause/Split"]
+process_mode = 3
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="UI/MainFrame/Pause/Split/Button"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h7oex")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u75tf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6kg38")
+theme_override_styles/normal = SubResource("StyleBoxFlat_li5bh")
+text = "Resume"
+expand_icon = true
+
+[node name="Leader" type="Button" parent="UI/MainFrame/Pause/Split/Button"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h7oex")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u75tf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6kg38")
+theme_override_styles/normal = SubResource("StyleBoxFlat_li5bh")
+text = "Leaderboard"
+expand_icon = true
+
+[node name="PlayerID" type="Button" parent="UI/MainFrame/Pause/Split/Button"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cdrac")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u75tf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6kg38")
+theme_override_styles/normal = SubResource("StyleBoxFlat_li5bh")
+text = "Copy your PlayerID"
+icon = ExtResource("11_1pwf1")
+expand_icon = true
+
+[node name="Leaderboard" type="PanelContainer" parent="UI/MainFrame/Pause"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dd6j5")
+script = ExtResource("13_xh46g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainFrame/Pause/Leaderboard"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Temp" type="PanelContainer" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vhsg2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer/ScrollContainer/VBoxContainer/Temp"]
+layout_mode = 2
+
+[node name="Rank" type="Label" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer/ScrollContainer/VBoxContainer/Temp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+label_settings = SubResource("LabelSettings_a8r1u")
+
+[node name="Name" type="Label" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer/ScrollContainer/VBoxContainer/Temp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "test"
+label_settings = SubResource("LabelSettings_a8r1u")
+
+[node name="Time" type="Label" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer/ScrollContainer/VBoxContainer/Temp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "123"
+label_settings = SubResource("LabelSettings_a8r1u")
+horizontal_alignment = 2
+
+[node name="Return" type="Button" parent="UI/MainFrame/Pause/Leaderboard/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ogrxn")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ujdx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vwgm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_neqvt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bq3tn")
+text = "Go back"
+icon = ExtResource("12_dxd4o")
+expand_icon = true
+
+[node name="SecretFrame" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/SecretFrame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c78ay")
+
+[node name="Label" type="Label" parent="UI/SecretFrame/PanelContainer"]
+layout_mode = 2
+text = "Matrix simulation.
+
+You're free. Don't waste it."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = -1945.0
+offset_top = 3701.0
+offset_right = -1428.0
+offset_bottom = 4204.0
+script = ExtResource("11_qy3kn")
+
+[connection signal="pressed" from="UI/MainFrame/Restart" to="UI/MainFrame/Restart" method="Restart"]
+[connection signal="pressed" from="UI/MainFrame/Pause/Split/Button/Resume" to="UI/MainFrame/Pause" method="Resume"]
+[connection signal="pressed" from="UI/MainFrame/Pause/Split/Button/Leader" to="UI/MainFrame/Pause" method="Leaderboard"]
+[connection signal="pressed" from="UI/MainFrame/Pause/Split/Button/PlayerID" to="UI/MainFrame/Pause" method="Copy"]
+[connection signal="pressed" from="UI/MainFrame/Pause/Leaderboard/VBoxContainer/Return" to="UI/MainFrame/Pause/Leaderboard" method="_on_return_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="activate"]

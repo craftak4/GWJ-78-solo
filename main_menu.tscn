@@ -1,19 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbsbqpssimtji"]
+[gd_scene load_steps=24 format=3 uid="uid://cbsbqpssimtji"]
 
 [ext_resource type="Texture2D" uid="uid://8bvt2gv7lei3" path="res://assets/textures/rubbers/Red.svg" id="1_pjkhw"]
 [ext_resource type="FontFile" uid="uid://0cwaoco030wf" path="res://assets/fonts/Gloria_Hallelujah/GloriaHallelujah-Regular.ttf" id="1_psrot"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_tmm26"]
 [ext_resource type="Texture2D" uid="uid://du0syujllkkbi" path="res://assets/textures/rubbers/Blue.svg" id="3_xbayo"]
+[ext_resource type="Script" path="res://music.gd" id="5_0q0tn"]
+[ext_resource type="Texture2D" uid="uid://b5stipbuasgis" path="res://assets/textures/rubbers/Aqua.svg" id="5_x77hl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qurdw"]
 content_margin_left = 89.0
 content_margin_top = 89.0
 content_margin_right = 89.0
 content_margin_bottom = 89.0
-bg_color = Color(0.564962, 0.564962, 0.564961, 1)
+bg_color = Color(0.787759, 0.787759, 0.787759, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4mioe"]
 font = ExtResource("1_psrot")
 font_size = 91
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vftf5"]
+font = ExtResource("1_psrot")
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v8rs"]
 
@@ -56,6 +64,78 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e71js"]
+content_margin_left = 214.0
+content_margin_top = 74.0
+content_margin_right = 214.0
+content_margin_bottom = 74.0
+bg_color = Color(0, 0, 0, 0.666667)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2jw87"]
+font_size = 26
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4h0og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p7fui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dek5b"]
+content_margin_left = 9.0
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08m3p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3xe2"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.776471, 0.776471, 0.776471, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hauuh"]
+content_margin_left = 24.0
+content_margin_top = 34.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 10
+border_color = Color(0.403922, 0.403922, 0.403922, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swk1v"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 10
+border_color = Color(0.404511, 0.404511, 0.404511, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms0h2"]
+content_margin_left = 194.0
+content_margin_top = 144.0
+content_margin_right = 194.0
+content_margin_bottom = 144.0
+bg_color = Color(0, 0, 0, 0.666667)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -63,6 +143,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tmm26")
 
 [node name="MainFrame" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -75,7 +156,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qurdw")
 
 [node name="Split" type="VBoxContainer" parent="MainFrame"]
 layout_mode = 2
-theme_override_constants/separation = 35
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="MainFrame/Split"]
 layout_mode = 2
@@ -85,13 +166,11 @@ label_settings = SubResource("LabelSettings_4mioe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MainFrame/Split"]
-visible = false
+[node name="Credit" type="Label" parent="MainFrame/Split"]
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("1_pjkhw")
-expand_mode = 1
-stretch_mode = 5
+text = "Created by MrContinuity"
+label_settings = SubResource("LabelSettings_vftf5")
+horizontal_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="MainFrame/Split"]
 layout_mode = 2
@@ -135,6 +214,176 @@ icon = ExtResource("3_xbayo")
 expand_icon = true
 
 [node name="Settings" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71js")
+
+[node name="SettingsElements" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+alignment = 1
+
+[node name="LootLocker" type="HBoxContainer" parent="Settings/SettingsElements"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Settings/SettingsElements/LootLocker"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enter your PlayerID: "
+label_settings = SubResource("LabelSettings_2jw87")
+
+[node name="LineEdit" type="LineEdit" parent="Settings/SettingsElements/LootLocker"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0.556863)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.427493, 0.427493, 0.427493, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4h0og")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_p7fui")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dek5b")
+placeholder_text = "Your PlayerID"
+
+[node name="Music" type="HBoxContainer" parent="Settings/SettingsElements"]
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("5_0q0tn")
+
+[node name="Label" type="Label" parent="Settings/SettingsElements/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music:"
+label_settings = SubResource("LabelSettings_2jw87")
+
+[node name="CheckButton" type="CheckButton" parent="Settings/SettingsElements/Music"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_08m3p")
+button_pressed = true
+
+[node name="Return" type="Button" parent="Settings/SettingsElements"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_psrot")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0v8rs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3xe2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hauuh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_swk1v")
+text = "Go back"
+icon = ExtResource("5_x77hl")
+expand_icon = true
+
+[node name="LLName" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ms0h2")
+
+[node name="Elements" type="VBoxContainer" parent="LLName"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="Name" type="HBoxContainer" parent="LLName/Elements"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="LLName/Elements/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enter your name:"
+label_settings = SubResource("LabelSettings_2jw87")
+
+[node name="LineEdit" type="LineEdit" parent="LLName/Elements/Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0.556863)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.427493, 0.427493, 0.427493, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4h0og")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_p7fui")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dek5b")
+placeholder_text = "Your name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LLName/Elements"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="LLName/Elements/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_psrot")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0v8rs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1882l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g1tq6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eb5p8")
+text = "Submit"
+icon = ExtResource("1_pjkhw")
+expand_icon = true
+
+[node name="Cancel" type="Button" parent="LLName/Elements/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_psrot")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0v8rs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1882l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g1tq6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eb5p8")
+text = "Cancel"
+icon = ExtResource("5_x77hl")
+expand_icon = true
+
+[node name="Waiter" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="MainFrame/Split/Buttons/Play" to="." method="play"]
+[connection signal="pressed" from="MainFrame/Split/Buttons/Settings" to="." method="settings"]
+[connection signal="pressed" from="Settings/SettingsElements/Return" to="." method="settings_return"]
+[connection signal="text_submitted" from="LLName/Elements/Name/LineEdit" to="." method="submit_lineedit"]
+[connection signal="pressed" from="LLName/Elements/VBoxContainer/Play" to="." method="submit"]
+[connection signal="pressed" from="LLName/Elements/VBoxContainer/Cancel" to="." method="unsubmit"]

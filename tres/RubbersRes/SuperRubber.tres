@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RubberResource" load_steps=3 format=3 uid="uid://brm07trvi8c2r"]
+
+[ext_resource type="Texture2D" uid="uid://b5stipbuasgis" path="res://assets/textures/rubbers/Aqua.svg" id="1_4ay5t"]
+[ext_resource type="Script" path="res://tres/RubbersRes/RubberResource.gd" id="1_w3gj6"]
+
+[resource]
+script = ExtResource("1_w3gj6")
+RubberTexture = ExtResource("1_4ay5t")
+Power = 70.0
+Name = "SuperRubber"
+Price = 59
+AssetID = 1
